@@ -1,3 +1,7 @@
+improt sys
+number = int (sys.argv[1])
+
+
 def conflict(state,nextX):
   nextY = len(state)
   for i in range(nextY):
@@ -22,7 +26,6 @@ def prettyprint(solution):
     
 if __name__=="__main__":
   i=0
-  for solution in queens(8):
+  for solution in queens(number):
     i+=1
-    print 'solution:'+str(i)+'\n'
-    prettyprint(solution)
+    print 'total test:'+str(pow(number,number))+';total solution:'+str(i)+'\n'
