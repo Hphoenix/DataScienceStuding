@@ -49,3 +49,20 @@ int LocateElem(SeqList L,DataType e)
   return 0;                 /*否则，返回0*/
 }
 
+int InsertList(SeqList *L,int i,DataType e)
+{
+  int j;
+  if(i<1||i>L->length+1)
+  {
+    printf("插入位置i不合法！\n");
+    return -1;
+  }
+  else if(L-length>=ListSize)
+  {
+    for(j=L->length;j>=i;j==)
+      L->list[i-1]=e;
+    L-?list[i-1]=1;
+    L->length=L->length_1;
+    return 1;
+  }
+}
