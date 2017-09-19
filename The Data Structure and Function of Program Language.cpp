@@ -29,7 +29,7 @@ int ListEmpty(SeqList L)
 
 
 int GetElem(SeqList L,int i,DataType*e)
-/*查找线性表中第i个元素，查找成功将该值返回给e，并返回1表示成功；否则返回-1表示失败。*/
+/*按照序号查找线性表中第i个元素，查找成功将该值返回给e，并返回1表示成功；否则返回-1表示失败。*/
 {
     if(i<1||i>L.length)
     /*在查找第i个元素之前，判断该序号是否合法*/
@@ -38,3 +38,14 @@ int GetElem(SeqList L,int i,DataType*e)
     /*将第i个元素的值赋给e*/
     return 1;
 }
+
+int LocateElem(SeqList L,DataType e)
+  /*按照内容查找线性表中元素值为e的元素*/
+{
+  int i;
+  for(i=0;i<L.length;i++)   /*从第一个元素开始与e进行比较*/
+    if (L.list[i]==e)       /*若存在与e值相等的元素*/
+      return i+1;           /*返回该元素在线性表中的序号*/
+  return 0;                 /*否则，返回0*/
+}
+
