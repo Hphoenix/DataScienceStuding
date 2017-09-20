@@ -90,4 +90,24 @@ int DeleteList(SeqList *L,int i,DataType *e)
   }
   else
   {
-    *e=L->
+    *e=L->list[i-1];
+    for(j=i;j<=L->length-1;j++)
+      L->list[j-1]=L->list[j];
+    L->length=L->length-1;
+    return 1;
+  }
+}
+/*删除元素的位置i的合法范围应该是1≤i≤L->length.当i=1时，表示要删除的第一个元素，对应C语言数组中的第0个元素；当i=L->length时，
+要删除的是最后一个元素。*/
+
+int ListLength(SeqList L)
+  /*求线性表的长度*/
+{
+  return L.length;
+}
+
+void ClearList(SeqList *L)
+/*清空顺序表*/
+{
+  L->length=0;
+}
