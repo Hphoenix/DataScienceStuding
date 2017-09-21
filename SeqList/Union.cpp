@@ -40,16 +40,16 @@ void main()
   }
   printf("\n");
   printf("顺序表LB中的元素: \n");
-  for(i=1;i<=LB.length;i++)
+  for(i=1;i<=LB.length;i++)  /*输出顺序表LB中的每个元素*/
   {
-    flag=GetElem(LB,i,&e);
+    flag=GetElem(LB,i,&e);  /*返回顺序表LB中的每个元素到e中*/
     if(flag==1)
       printf("%4d",e);
   }
   printf("\n");
   printf("将LB中但不在LA中的元素插入LA中： \n");
-  UnionAB(&LA,LB);
-  for(i=1;i<=LA.length;i++)
+  UnionAB(&LA,LB);    /*将LB中但不在LA中的元素插入LA中*/
+  for(i=1;i<=LA.length;i++)  /*输出LA中所有元素*/
   {
     flag=GetElem(LA,i,&e);
     if(flag==1)
@@ -59,5 +59,18 @@ void main()
 }
 
 void UnionAB(SeqList *A,SeqList LB)
-             
-             
+             /*删除A中出现B的元素的函数实现*/
+             {
+              int i,flag,pos;
+               DataType e;
+               for(i=1;i<LB.length;i++)
+               {
+                 flag=GetElem(LB,i,&e);   /*依次把LB中每个元素取出赋值给e*/
+                 if(flag==1)
+                 {
+                   pos=LocateElem(*LA,e);   /*在LA中查找和LB中取出的元素e相同的元素*/
+                   if(!pos)
+                     InsertList(LA,LA->length+1,e);   /*如果找到该元素，将元素插入LA中*/
+                 }
+               }
+             }
