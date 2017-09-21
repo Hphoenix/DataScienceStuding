@@ -13,8 +13,8 @@ void main()
   InitList(&B);/*初始化顺序表B*/
   for(i=0;i<=10;i++)/*插入顺序表A中10个数*/
   {
-    if(InsertList(&A,i,i*2+10==0)
-       {
+    if(InsertList(&A,i,i*2+10)==0)
+      {
          printf("位置不合法");
          return;
        }
@@ -27,47 +27,46 @@ void main()
            return;
          }
        }
-       printf("顺序表A中的元素： \n");
-       for(i=1;i<=A.length;i++)/*输出顺序表A中的每个元素*/
-       {
-         flag=GetElem(A,i,&e);/*返回顺序表A中的每个元素到e中*/
-         if(flag==1)
-           printf("%4d,&e);
-                  }
-                  printf("\n");
-       printf("顺序表B中的元素： \n");
-                  for(i=1;i<=B.length;i++)/*输出顺序表B中的每个元素*/
-                  {
-                    flag=GetElem(B,i,&e);/*返回顺序表B中的每个元素到e中*/
-                    if(flag==1)
-                      printf("%4d,e);
-                             }
-                             printf("\n");
-                             printf("将在A中出现B的元素删除后，A中的元素（即A-B）: \n");
-                             DelElem(&A,B);/*将在顺序表A中出现的B的元素删除*/
-                             for(i=1;i<=A.length;i++)/*显示输出删除后A中所有元素*/
-                             {
-                               flag=GetElem(A,i,&e);
-                               if(flag==1)
-                                 printf("%4d",e);
-                             }
-                             printf("\n");
-                             }
-                             void DelElem(SeqList *A,SeqList B)
-                             /*求A-B,即删除A中B的元素*/
-                             {
-                               int i,flag,pos;
-                               DataType e;
-                               for(i=1;i<=B.length;i++)
-                               {
-                                 flag=GetElem(B,i,&e);
-                                 if(flag==1)
-                                 {
-                                   pos=LocateElem(&A,e);/*在A中查找元素e*/
-                                   if(pos>0)/*如果该元素存在*/
-                                     DeleteList(A,pos,&e);/*则将其从A中删除*/
-                                 }
-                               }
-                             }
-                             
+  printf("顺序表A中的元素： \n");
+  for(i=1;i<=A.length;i++)/*输出顺序表A中的每个元素*/
+    {
+      flag=GetElem(A,i,&e);/*返回顺序表A中的每个元素到e中*/
+      if(flag==1)
+        printf("%4d",&e);
+    }
+   printf("\n");
+   printf("顺序表B中的元素： \n");
+   for(i=1;i<=B.length;i++)/*输出顺序表B中的每个元素*/
+     {
+       flag=GetElem(B,i,&e);/*返回顺序表B中的每个元素到e中*/
+       if(flag==1)
+         printf("%4d",e);
+     }
+   printf("\n");
+   printf("将在A中出现B的元素删除后，A中的元素（即A-B）: \n");
+   DelElem(&A,B);/*将在顺序表A中出现的B的元素删除*/
+   for(i=1;i<=A.length;i++)/*显示输出删除后A中所有元素*/
+   {
+     flag=GetElem(A,i,&e);
+     if(flag==1)
+       printf("%4d",e);
+   }
+  printf("\n");
+}
+void DelElem(SeqList *A,SeqList B)
+  /*求A-B,即删除A中B的元素*/
+{
+  int i,flag,pos;
+  DataType e;
+  for(i=1;i<=B.length;i++)
+  {
+    flag=GetElem(B,i,&e);
+    if(flag==1)
+    {
+      pos=LocateElem(&A,e);/*在A中查找元素e*/
+      if(pos>0)/*如果该元素存在*/
+        DeleteList(A,pos,&e);/*则将其从A中删除*/
+    }
+  }
+}
                              
