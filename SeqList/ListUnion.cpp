@@ -53,24 +53,24 @@ void main()
   {
     flag=GetElem(LA,i,&e);
     if(flag==1)
-      printf("%4d,e);
+      printf("%4d",e);
   }
   printf("\n");
 }
 
 void UnionAB(SeqList *A,SeqList LB)
-             /*删除A中出现B的元素的函数实现*/
-             {
-              int i,flag,pos;
-               DataType e;
-               for(i=1;i<LB.length;i++)
-               {
-                 flag=GetElem(LB,i,&e);   /*依次把LB中每个元素取出赋值给e*/
-                 if(flag==1)
-                 {
-                   pos=LocateElem(*LA,e);   /*在LA中查找和LB中取出的元素e相同的元素*/
-                   if(!pos)
-                     InsertList(LA,LA->length+1,e);   /*如果找到该元素，将元素插入LA中*/
-                 }
-               }
-             }
+ /*删除A中出现B的元素的函数实现*/
+{
+  int i,flag,pos;
+  DataType e;
+  for(i=1;i<LB.length;i++)
+  {
+    flag=GetElem(LB,i,&e);   /*依次把LB中每个元素取出赋值给e*/
+      if(flag==1)
+      {
+         pos=LocateElem(*LA,e);   /*在LA中查找和LB中取出的元素e相同的元素*/
+         if(!pos)
+         InsertList(LA,LA->length+1,e);   /*如果找到该元素，将元素插入LA中*/
+       }
+  }
+}
