@@ -28,7 +28,7 @@ void move(sqlist A,int na)
 {
   int i;
   for(i=0;i<na;i++)
-    A[MaxLen-i-1]=A[na-i-1];
+    A[MaxLen-i-1]=A[na-i-1]; 
 }
 int add(sqlist *A,int na,sqlist B,int nb)
 {
@@ -44,12 +44,12 @@ int add(sqlist *A,int na,sqlist B,int nb)
     j=(*A)[i]+B[i];
     if(j>9)
     {
-      (*A)[i-1]=(*A)[i-1]+1;
-      (*A)[i]=j-10;
+      (*A)[i-1]=(*A)[i-1]+1;/*高位加上1*/
+      (*A)[i]=j-10;/*和减去10后存储到当前位*/
     }
     else
       (*A)[i]=j;
-    if(i==MaxLen-nc)
+    if(i==MaxLen-nc)/*处理最高位*/
     {
       if(j>9)
       {
