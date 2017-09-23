@@ -47,3 +47,43 @@ ListNode *Get(LinkList head,int i)
   else
     return NULL;
 }
+
+/*查找元素值为e的结点*/
+ListNode *LocateElem(LInkList head,DataType e)
+{
+  ListNode *p;
+  p=head->next;
+  while(p)
+  {
+    if(p->data!=e)
+      p=p->next;
+    else
+      break;
+  }
+  return p;
+}
+
+/*定位操作，确定元素在单链表中的序号。从头指针出发，依次访问每个结点，并将结点的值与e比较，
+如果相等，则返回该序号表示成功；如果没有与e值相等的元素，则返回0表示失败*/
+int LocatePos(LinkList head,DataType e)
+{
+  ListNode *p;
+  int i;
+  if(ListEmpty(head))
+    return 0;
+  p=head->next;
+  i=1;
+  while(p)
+  {
+    if(p->data==e)
+      return i;
+    else
+    {
+      p=p->next;
+      i++;
+    }
+  }
+  if(!p)
+    return 0;
+}
+      
